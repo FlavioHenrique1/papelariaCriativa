@@ -1,0 +1,95 @@
+.tabela {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.tabela th, .tabela td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+.tabela th {
+    background: #f1f1f1;
+}
+
+.btn {
+    padding: 6px 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 13px;
+    text-decoration: none;
+    color: #fff;
+}
+
+.visualizar {
+    background: #0d6efd;
+}
+
+.editar {
+    background: #198754;
+}
+
+.fechar {
+    background: #6c757d;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.status {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+.status.ativo {
+    background: #d1e7dd;
+    color: #0f5132;
+}
+
+.status.inativo {
+    background: #f8d7da;
+    color: #842029;
+}
+
+/* MODAL */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 20px;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 8px;
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+    .tabela th {
+        display: none;
+    }
+
+    .tabela tr {
+        display: block;
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        padding: 10px;
+    }
+
+    .tabela td {
+        display: flex;
+        justify-content: space-between;
+        border: none;
+        padding: 6px 0;
+    }
+}

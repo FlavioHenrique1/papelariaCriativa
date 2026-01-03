@@ -1,0 +1,29 @@
+
+# Dependências
+/vendor/
+
+# Configurações locais
+database.php
+.env
+ignore/
+
+# Cache / logs
+/storage/
+logs/
+*.log
+
+# Uploads do sistema
+/uploads/
+public/uploads/
+
+# Sessões PHP
+/sessions/
+
+# IDE / SO
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Composer
+composer.lock

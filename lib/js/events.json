@@ -1,0 +1,29 @@
+[
+    {
+        "id":1,
+        "title": "All Day Event",
+        "start": "2023-03-24 12:07:02",
+        "end": "2023-03-29 12:07:02",
+        "color": "blue"
+    },
+    {
+        "id":2,
+        "title": "All Day ",
+        "start": "2023-03-26",
+        "end": "2023-03-27",
+        "color": "red"
+    },
+    {
+        "id":3,
+        "title": " Day Event",
+        "start": "2023-03-28",
+        "end": "2023-03-29",
+        "color": "black"
+    },
+    {
+        "id":4,
+        "title": "Day",
+        "start": "2023-03-29",
+        "end": "2023-03-30"
+    }
+]
