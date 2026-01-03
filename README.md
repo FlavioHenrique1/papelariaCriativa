@@ -1,17 +1,20 @@
-# gerRotina
-Gerenciador de rotinas trab
+# Papelaria Criativa
 
-assets/js/
-├── core/
-│   ├── http.js        ← comunicação
-│   ├── form.js        ← formulário
-│   └── ui.js          ← interface
-│
-├── app.js             ← regras globais
-│
-├── pages/
-│   ├── insumos.js
-│   ├── servicos.js
-│   ├── compras.js
-│   └── usuarios.js
+Sistema de gestão para papelaria desenvolvido em PHP (MVC), MySQL e JavaScript puro.
 
+## Requisitos
+- PHP 8+
+- MySQL
+- Apache (XAMPP)
+
+## Instalação
+1. Clone o repositório
+2. Copie `config.example.php` para `config.php`
+3. Configure o banco
+4. Importe `sql/estrutura.sql`
+
+## Estrutura
+- controllers/
+- models/
+- classes/
+- assets/js/core
