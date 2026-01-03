@@ -10,12 +10,13 @@
     </div>
 
     <!-- TABELA DE INSUMOS -->
-    <table class="table table-bordered table-hover">
+    <table class="table table-bordered table-hover" id="tabelaInsumos">
         <thead class="table-light">
             <tr>
-                <th>ID</th>
+                <!-- <th>ID</th> -->
                 <th>Nome do Insumo</th>
                 <th>Estoque</th>
+                <th>Descrição</th>
                 <th width="160">Ações</th>
             </tr>
         </thead>
@@ -86,7 +87,7 @@
                     </div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button class="btn btn-success" onclick="salvarInsumo()">Salvar</button>
+                    <button class="btn btn-success" onclick="">Salvar</button>
                 </div>
             </form>
         </div>

@@ -1,5 +1,5 @@
 <?php
-$valInsumo=new Classes\ClassInsumos();
+$valInsumo = new Classes\ClassInsumos();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -7,22 +7,39 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'id'        => $_POST['id']        ?? null,
         'nome'      => $_POST['nome']      ?? '',
         'descricao' => $_POST['descricao'] ?? '',
-        'estoque'   => $_POST['estoque']   ?? ''
+        'estoque'   => isset($_POST['estoque']) ? (int)$_POST['estoque'] : 0
     ];
 
-    if (empty($dados['nome'])) {
-        echo json_encode([
-            'success' => false,
-            'message' => 'Nome é obrigatório'
-        ]);
-        exit;
-    }
+    $action = $_POST['action'] ?? '';
 
-    if (empty($dados['id'])) {
+    if (empty($dados['id']) && empty($action)) {
         // INSERT
-        $valInsumo->inserirInsumos($dados);
-    } else {
-        // UPDATE
+        echo $valInsumo->inserirInsumos($dados);
 
+    } elseif ($action === 'list') {
+        // SELECT
+        echo $valInsumo->selectInsumos($dados['id']);
+
+    } elseif ($action === 'delete') {
+        // DELETE
+        if ($dados['id']) {
+            $excluido = $valInsumo->excluirInsumo($dados['id']); // método que você deve ter na sua classe
+            if ($excluido) {
+                echo json_encode(['success' => true, 'message' => 'Insumo excluído com sucesso!']);
+            } else {
+                echo json_encode(['success' => false, 'message' => 'Erro ao excluir insumo.']);
+            }
+        } else {
+            echo json_encode(['success' => false, 'message' => 'ID do insumo não informado.']);
+        }
+
+    } else {
+
+        // UPDATE
+        if ($dados['id']) {
+           echo $valInsumo->atualizarInsumo($dados);
+        } else {
+            echo json_encode(['success' => false, 'message' => 'ID necessário para atualizar.']);
+        }
     }
 }

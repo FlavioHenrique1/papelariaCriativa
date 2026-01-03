@@ -3,13 +3,12 @@
 <div class="container">
     <h2>Cadastro de Serviços</h2>
 
-    <form action="salvar_servico.php" method="POST">
+    <form name="formServiço" id="formServiço" action="" method="post">
 
         <div class="form-group">
             <label>Nome do Serviço</label>
             <input type="text" name="nome_servico" required>
         </div>
-
         <div class="form-group">
             <label>Categoria</label>
             <select name="categoria" required>
@@ -36,11 +35,15 @@
         <h3>Insumos Utilizados</h3>
 
         <div id="insumos">
-            <div class="insumo-item">
-                <input type="text" name="insumo_nome[]" placeholder="Ex: Espiral" required>
+            <!-- <div class="insumo-item">
+                <select class="selectInsumos" name="insumo_nome[]" placeholder="Ex: Espiral" required>>
+                    <option value="encadernacao">papel a4</option>
+                    <option value="plastificacao">Plastico</option>
+                    <option value="xerox">tinta</option>
+                </select>
                 <input type="number" name="insumo_qtd[]" placeholder="Qtd" min="1" required>
                 <button type="button" class="btn-remove" onclick="removerInsumo(this)">✖</button>
-            </div>
+            </div> -->
         </div>
 
         <button type="button" class="btn-add" onclick="adicionarInsumo()">+ Adicionar Insumo</button>
@@ -57,22 +60,4 @@
 
     </form>
 </div>
-
-<script>
-function adicionarInsumo() {
-    const div = document.createElement("div");
-    div.classList.add("insumo-item");
-
-    div.innerHTML = `
-        <input type="text" name="insumo_nome[]" placeholder="Ex: Papel A4" required>
-        <input type="number" name="insumo_qtd[]" placeholder="Qtd" min="1" required>
-        <button type="button" class="btn-remove" onclick="removerInsumo(this)">✖</button>
-    `;
-
-    document.getElementById("insumos").appendChild(div);
-}
-function removerInsumo(botao) {
-    botao.parentElement.remove();
-}
-</script>
-<?php \Classes\ClassLayout::setFooter();?>
+<?php \Classes\ClassLayout::setFooter("servicos.js");?>

@@ -92,7 +92,9 @@ h2 {
     display: flex;
     gap: 15px;
 }
-
+.selectInsumos{
+    width: 60%;
+}
 /* Cada campo ocupa metade */
 .form-row .form-group {
     flex: 1;
@@ -175,5 +177,8 @@ button:hover {
     button {
         font-size: 15px;
         padding: 11px;
+    }
+    .selectInsumos{
+        width: 100%;
     }
 }

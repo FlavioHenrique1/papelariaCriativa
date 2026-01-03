@@ -9,17 +9,17 @@
         </a>
     </div>
 
-    <table class="table table-striped table-hover align-middle">
-        <thead class="table-light">
+    <table class="table table-striped table-hover align-middle" id="tabelaServicos">
+        <thead class="table-light text-center">
             <tr>
                 <th>Serviço</th>
-                <th>Categoria</th>
+                <th>Descrição</th>
                 <th>Preço</th>
                 <th>Status</th>
-                <th width="220">Ações</th>
+                <th>Ações</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody class="text-center">
             <tr>
                 <td>Encadernação Simples</td>
                 <td>Encadernação</td>
@@ -30,7 +30,7 @@
                 <td>
                     <button class="btn btn-sm btn-info" 
                             onclick="visualizarServico(1)">
-                        Visualizar
+                        Visualizar 
                     </button>
                     <a href="editar_servico.php?id=1" 
                        class="btn btn-sm btn-warning">
