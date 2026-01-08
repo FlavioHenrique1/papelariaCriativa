@@ -24,11 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // DELETE
         if ($dados['id']) {
             $excluido = $valInsumo->excluirInsumo($dados['id']); // método que você deve ter na sua classe
-            if ($excluido) {
-                echo json_encode(['success' => true, 'message' => 'Insumo excluído com sucesso!']);
-            } else {
-                echo json_encode(['success' => false, 'message' => 'Erro ao excluir insumo.']);
-            }
+            echo($excluido);
         } else {
             echo json_encode(['success' => false, 'message' => 'ID do insumo não informado.']);
         }

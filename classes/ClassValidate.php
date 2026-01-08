@@ -16,6 +16,7 @@ class ClassValidate{
     private $login;
     private $session;
     private $mail;
+    private $tentativas;
 
     public function __construct()
     {
@@ -218,6 +219,9 @@ class ClassValidate{
     public function validateUserActive($email)
     {
         $user=$this->login->getDataUser($email);
+        if (!$user || $user['rows'] === 0 || $user['data'] === false) {
+            return false;
+        }
         if($user["data"]["status"] == "confirmation"){
             if(strtotime($user["data"]["dataCriacao"])<= strtotime(date("Y-m-d H:i:s"))-432000){
                 $this->setErro("Ative seu cadastro pelo link do email");
@@ -243,7 +247,7 @@ class ClassValidate{
         }else{
             $arrResponse=[
                 "retorno"=>"success",
-                "page"=>'atividades',
+                "page"=>'areaRestrita',
                 "tentativas"=>$this->tentativas
             ];
             $this->login->deleteAttempt();

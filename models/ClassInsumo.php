@@ -88,4 +88,18 @@ class ClassInsumo extends ClassCrud{
         }
     }
 
+    public function insumoEmUso($id)
+    {
+        $b=$this->selectDB(
+            "*",
+            "servicos_insumos",
+            "WHERE insumo_id=?",
+            array(
+                $id,
+            )
+        );
+        $r=$b->rowCount();
+        return $r;
+    }
+
 }

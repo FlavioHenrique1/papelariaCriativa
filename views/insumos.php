@@ -8,7 +8,7 @@
             + Novo Insumo
         </button>
     </div>
-
+        <div id="appMessage" class="alert d-none" role="alert"></div>
     <!-- TABELA DE INSUMOS -->
     <table class="table table-bordered table-hover" id="tabelaInsumos">
         <thead class="table-light">

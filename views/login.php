@@ -6,7 +6,7 @@
             <img src="<?php echo DIRIMG.'Logo-removebg-preview.png';?>" alt="Arte no Papel Alto do Sol" class="logo">
             <div class="resultadoForm float w100 center"></div>
 
-            <form name="formLogin" id="formLogin" action="<?php echo DIRCONT.'controllerLogin';?>" method="post">
+            <form name="formLogin" id="formLogin" action="<?php #echo DIRCONT.'controllerLogin';?>" method="post">
                 <input type="email" placeholder="Email" name="email" id="email" required>
                 <input type="password" placeholder="Senha" name="senha" id="senha" required>
 

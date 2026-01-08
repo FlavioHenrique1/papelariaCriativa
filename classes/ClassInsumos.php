@@ -49,13 +49,20 @@ class ClassInsumos{
 
     // EXCLUIR INSUMOS
     public function excluirInsumo($id=null){
+        $r=$this->inserirIns->insumoEmUso($id);
+        if ($this->inserirIns->insumoEmUso($id) > 0) {
+            $arrResponse=[
+                'success' => false,
+                'message' => 'Este insumo está vinculado a um serviço e não pode ser excluído.'
+            ];
+        }else{
+            $this->inserirIns->deleteInsumos($id);
+            $arrResponse=[
+                'success' => true,
+                'message' => 'Insumo excluído com sucesso.'
+            ];
+        };
         
-        $retorno = $this->inserirIns->deleteInsumos($id);
-        $arrResponse=[
-            'success' => true,
-            "data"=>$retorno,
-            "erros"=>null
-        ];
         return json_encode($arrResponse);
     }
 

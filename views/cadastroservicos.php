@@ -6,6 +6,7 @@
     <form name="formServiço" id="formServiço" action="" method="post">
 
         <div class="form-group">
+            <div id="appMessage" class="alert d-none" role="alert"></div>
             <label>Nome do Serviço</label>
             <input type="text" name="nome_servico" required>
         </div>
@@ -51,8 +52,8 @@
         <div class="form-group">
             <label>Status</label>
             <select name="status">
-                <option value="ativo">Ativo</option>
-                <option value="inativo">Inativo</option>
+                <option value="Ativo">Ativo</option>
+                <option value="Inativo">Inativo</option>
             </select>
         </div>
 
