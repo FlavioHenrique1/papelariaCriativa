@@ -1,0 +1,44 @@
+body {
+    background-color: #f5f6fa;
+}
+
+.table td, .table th {
+    vertical-align: middle;
+}
+
+.badge-status {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+}
+
+.btn-acao {
+    margin-right: 5px;
+}
+
+@media (max-width: 768px) {
+    table thead {
+        display: none;
+    }
+
+    table tbody tr {
+        display: block;
+        margin-bottom: 1rem;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        padding: 10px;
+        background: #fff;
+    }
+
+    table tbody td {
+        display: flex;
+        justify-content: space-between;
+        padding: 6px 0;
+        border: none;
+    }
+
+    table tbody td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: #555;
+    }
+}

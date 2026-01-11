@@ -4,8 +4,8 @@
 
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h4>Serviços Cadastrados</h4>
-        <a class="btn btn-primary" onclick="modalShow()">
-            Novo Serviço
+        <a class="btn btn-success" onclick="modalShow()">
+            <i class="bi bi-plus-circle"></i> Novo Serviço
         </a>
     </div>
     

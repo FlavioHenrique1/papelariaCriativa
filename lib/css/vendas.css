@@ -1,0 +1,178 @@
+/* ==============================
+   VARIÁVEIS DE TEMA
+============================== */
+:root {
+    --bg-page: #f2f4f3;
+
+    --card-bg: #ffffff;
+    --card-gradient: linear-gradient(180deg, #eef5ee 0%, #ffffff 45%);
+
+    --primary: #b30447;
+    --primary-dark: #ffa9ad;
+    --primary-light: #e5f2e8;
+
+    --text-primary: #6e0911;
+    --text-secondary: #4a5d52;
+
+    --border-color: #e2e6e3;
+}
+
+/* ==============================
+   BASE
+============================== */
+body {
+    background-color: var(--bg-page);
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    font-size: 14px;
+}
+
+/* ==============================
+   CONTAINER
+============================== */
+.caixa-wrapper {
+    max-width: 520px;
+    margin: 12px auto;
+    padding: 0 10px;
+}
+
+/* ==============================
+   CARD PRINCIPAL
+============================== */
+.caixa-card {
+    background: var(--card-gradient);
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,.08);
+    padding: 12px;
+}
+
+/* ==============================
+   HEADER
+============================== */
+.caixa-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+/* ==============================
+   SEÇÕES
+============================== */
+.caixa-section {
+    background: var(--card-bg);
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid var(--border-color);
+}
+
+.caixa-section h6 {
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+}
+
+/* ==============================
+   FORMULÁRIOS
+============================== */
+.form-control,
+.form-select {
+    border-radius: 6px;
+    font-size: 14px;
+    padding: 8px;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 .15rem rgba(95,127,86,.25);
+}
+
+/* ==============================
+   BOTÕES
+============================== */
+.btn-add {
+    background: linear-gradient(180deg, var(--primary), var(--primary-dark));
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    padding: 10px;
+    border-radius: 6px;
+    width: 100%;
+}
+
+.btn-finalizar {
+    width: 100%;
+    background: linear-gradient(180deg, var(--primary), var(--primary-dark));
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 15px;
+}
+
+/* ==============================
+   TOTAIS
+============================== */
+.total-box {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.troco-box {
+    background: var(--primary-light);
+    color: var(--text-primary);
+    padding: 8px;
+    border-radius: 6px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+/* ==============================
+   HEADER DAS SEÇÕES (CARD HEADER)
+============================== */
+.section-header {
+    background: linear-gradient(180deg, #f4f7f4, #eef2ee);
+    border-bottom: 1px solid var(--border-color);
+    padding: 8px 12px;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--text-secondary);
+    border-radius: 8px 8px 0 0;
+    margin: -10px -10px 10px -10px;
+}
+
+/* Corpo da seção */
+.section-body {
+    padding-top: 4px;
+}
+
+
+/* ==============================
+   RESPONSIVO (DESKTOP)
+============================== */
+@media (min-width: 768px) {
+
+    body {
+        font-size: 15px;
+    }
+
+    .caixa-wrapper {
+        max-width: 560px;
+    }
+
+    .caixa-card {
+        padding: 15px;
+    }
+
+    .btn-add,
+    .btn-finalizar {
+        padding: 12px;
+    }
+}

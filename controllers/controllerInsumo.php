@@ -7,6 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'id'        => $_POST['id']        ?? null,
         'nome'      => $_POST['nome']      ?? '',
         'descricao' => $_POST['descricao'] ?? '',
+        'tamanho' => $_POST['tamanho'] ?? '',
         'estoque'   => isset($_POST['estoque']) ? (int)$_POST['estoque'] : 0
     ];
 

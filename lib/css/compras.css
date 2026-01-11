@@ -1,0 +1,28 @@
+body {
+    background: #f1f3f6;
+}
+
+.resumo-card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,.08);
+}
+
+.resumo-icon {
+    font-size: 2rem;
+    color: #198754;
+}
+
+.table th {
+    white-space: nowrap;
+}
+
+.badge {
+    font-size: .8rem;
+}
+
+@media (max-width: 768px) {
+    h4 {
+        font-size: 1.2rem;
+    }
+}

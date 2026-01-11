@@ -4,8 +4,8 @@
 
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h4>Insumos</h4>
-        <button class="btn btn-primary" onclick="novoInsumo()">
-            + Novo Insumo
+        <button class="btn btn-success"onclick="novoInsumo()">
+            <i class="bi bi-plus-circle"></i> Novo Insumo
         </button>
     </div>
         <div id="appMessage" class="alert d-none" role="alert"></div>
@@ -15,8 +15,9 @@
             <tr>
                 <!-- <th>ID</th> -->
                 <th>Nome do Insumo</th>
-                <th>Estoque</th>
                 <th>Descrição</th>
+                <th>Tamanho</th>
+                <th>Estoque</th>
                 <th width="160">Ações</th>
             </tr>
         </thead>
@@ -73,16 +74,25 @@
 
                         <div class="mb-3">
                             <label class="form-label">Nome do Insumo</label>
-                            <input type="text" id="nome" class="form-control" name="nome">
+                            <input type="text" id="nome" class="form-control" name="nome" required>
                         </div>
                         <div class="mb-3">
                             <label>Descrição</label>
-                            <input type="text" name="descricao" id="descricao" class="form-control">
+                            <input type="text" name="descricao" id="descricao" class="form-control" required>
                         </div>
-
+                        <div class="mb-3">
+                            <label>Tamanho</label>
+                            <select name="tamanho" id="tamanho" class="form-control" required>
+                                <option value="">Selecione</option>
+                                <option value="A4">A4</option>
+                                <option value="A3">A3</option>
+                                <option value="A5">A5</option>
+                                <option value="Documento">Documento</option>
+                            </select>
+                        </div>
                         <div class="mb-3">
                             <label class="form-label">Estoque Inicial</label>
-                            <input type="number" id="estoque" name="estoque" class="form-control">
+                            <input type="number" id="estoque" name="estoque" class="form-control" required>
                         </div>
                     </div>
                 <div class="modal-footer">
