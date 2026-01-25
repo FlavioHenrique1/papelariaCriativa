@@ -8,14 +8,13 @@ class ClassInsumo extends ClassCrud{
     {
         $this->insertDB(
             "insumos",
-            "?,?,?,?,?,?,?",
+            "?,?,?,?,?,?",
             array(
                 0,
                 $arrVar['nome'],
                 $arrVar['tamanho'],
-                $arrVar['estoque'],
-                0,
                 $arrVar['descricao'],
+                $arrVar['estoqueMinimo'],
                 null
             )
         );

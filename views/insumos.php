@@ -1,4 +1,5 @@
 <?php \Classes\ClassLayout::setHeader('Cadastro','Realize seu cadastro em nosso sistema');?>
+<?php \Classes\ClassLayout::setNav("insumos");?>
     
 <div class="container mt-4">
 
@@ -17,7 +18,7 @@
                 <th>Nome do Insumo</th>
                 <th>Descrição</th>
                 <th>Tamanho</th>
-                <th>Estoque</th>
+                <th>Estoque Mínimo</th>
                 <th width="160">Ações</th>
             </tr>
         </thead>
@@ -26,7 +27,7 @@
             <tr>
                 <td>1</td>
                 <td>Papel A4</td>
-                <td>500</td>
+                <td>descricao</td>
                 <td>
                     <button class="btn btn-sm btn-warning"
                         onclick="editarInsumo(1, 'Papel A4', 500)">
@@ -91,8 +92,8 @@
                             </select>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Estoque Inicial</label>
-                            <input type="number" id="estoque" name="estoque" class="form-control" required>
+                            <label>Estoque Mínimo</label>
+                            <input type="number" name="estoqueMinimo" id="estoqueMinimo" class="form-control" required>
                         </div>
                     </div>
                 <div class="modal-footer">

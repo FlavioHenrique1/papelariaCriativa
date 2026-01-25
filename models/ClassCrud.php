@@ -1,44 +1,54 @@
 <?php
 namespace Models;
 
-class ClassCrud extends ClassConexao{
+abstract class ClassCrud extends ClassConexao {
 
-    private $crud;
+    protected $crud;
+    protected $db; // 👈 guarda o PDO aqui
 
-    #Responsável pela preparação da query e execução
-    private function prepareExecute($prep,$exec)
+    public function __construct()
     {
-        $this->crud=$this->conectaDB()->prepare($prep);
+        $this->db = $this->conectaDB(); // 🔥 pega a conexão
+    }
+
+    protected function prepareExecute($sql, $exec)
+    {
+        $this->crud = $this->db->prepare($sql);
         $this->crud->execute($exec);
     }
 
-    #Seleção de dados
-    public function selectDB($fields,$table,$where,$exec)
+    public function selectDB($fields, $table, $where, $exec)
     {
-        $this->prepareExecute("SELECT {$fields} FROM {$table} {$where} ", $exec);
-        return $this->crud; 
+        $this->prepareExecute(
+            "SELECT {$fields} FROM {$table} {$where}",
+            $exec
+        );
+        return $this->crud;
     }
 
-    #Inserção de dados
-    public function insertDB($table,$values,$exec)
+    public function insertDB($table, $values, $exec)
     {
-        $this->prepareExecute("INSERT INTO {$table} VALUES ({$values})", $exec);
-        return $this->crud; 
+        $this->prepareExecute(
+            "INSERT INTO {$table} VALUES ({$values})",
+            $exec
+        );
+
+        return $this->db->lastInsertId(); // 🔥 FUNCIONA
     }
 
-    #Delete de dados
-    public function deleteDB($table,$where,$exec)
+    public function updateDB($table, $set, $where, $exec)
     {
-        $this->prepareExecute("DELETE FROM {$table} WHERE {$where}", $exec);
-        return $this->crud; 
+        $this->prepareExecute(
+            "UPDATE {$table} SET {$set} WHERE {$where}",
+            $exec
+        );
     }
 
-    #Inserção de dados
-    public function updateDB($table,$values,$where,$exec)
+    public function deleteDB($table, $where, $exec)
     {
-        $this->prepareExecute("UPDATE {$table} SET {$values} WHERE {$where}", $exec);
-        return $this->crud; 
+        $this->prepareExecute(
+            "DELETE FROM {$table} WHERE {$where}",
+            $exec
+        );
     }
-
-
 }

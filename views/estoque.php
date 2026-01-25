@@ -17,7 +17,6 @@
                 <button class="btn btn-success">
                     <i class="bi bi-plus-circle"></i> Nova Entrada
                 </button>
-
                 <button class="btn btn-secondary">
                     <i class="bi bi-file-earmark-text"></i> Relatório
                 </button>
@@ -32,7 +31,7 @@
                 <tr>
                     <th>Insumo</th>
                     <th>Tamanho</th>
-                    <th>Estoque Mínimo</th>
+                    <th>Custo Médio</th>
                     <th>Saldo Atual</th>
                     <th class="text-center">Ações</th>
                 </tr>
@@ -45,4 +44,4 @@
 
 </div>
 
-<?php \Classes\ClassLayout::setFooter('estoque.js');?>
+<?php \Classes\ClassLayout::setFooter('estoque.js',["estoque"]);?>

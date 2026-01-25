@@ -26,3 +26,19 @@ body {
         font-size: 1.2rem;
     }
 }
+
+.modal-header {
+    border-bottom: none;
+}
+
+.modal-footer {
+    border-top: none;
+}
+
+#compraTotal {
+    background: #f8f9fa;
+}
+.paginacao{
+    width: 70% !important;
+    height: 190px;
+}

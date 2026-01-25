@@ -37,44 +37,33 @@ class ClassLayout
         echo $html;
     }
 
-    # Setar as tags do footer
-    public static function setFooter($jsPage = null)
+    public static function setFooter($jsPage = null, array $cores = [])
     {
-        $html  = "";
+        $html = "";
 
-        /* =========================
-        LIBS BASE
-        ========================== */
+        // libs base (sempre)
         $html .= "<script src='" . DIRJS . "bootstrap.bundle.min.js'></script>\n";
         $html .= "<script src='" . DIRJS . "vanilla-masker.min.js'></script>\n";
 
-        /* =========================
-        CORE DO SISTEMA
-        ========================== */
-        $html .= "<script src='" . DIRJS . "core/http.js'></script>\n";
-        $html .= "<script src='" . DIRJS . "core/form.js'></script>\n";
-        $html .= "<script src='" . DIRJS . "core/ui.js'></script>\n";
+        // cores comuns
+        $defaultCores = ['http', 'ui','form'];
 
-        /* =========================
-        JS GLOBAL DO SISTEMA
-        ========================== */
-        $html .= "<script src='" . DIRJS . "app.js'></script>\n";
+        $cores = array_unique(array_merge($defaultCores, $cores));
 
-        /* =========================
-        JS ESPECÍFICO DA PÁGINA
-        ========================== */
+        foreach ($cores as $core) {
+            $html .= "<script src='" . DIRJS . "core/{$core}.js'></script>\n";
+        }
+
+        // js da página
         if ($jsPage) {
             $html .= "<script src='" . DIRJS . $jsPage . "'></script>\n";
         }
 
-        /* =========================
-        FECHAMENTO HTML
-        ========================== */
-        $html .= "</body>\n";
-        $html .= "</html>";
+        $html .= "</body></html>";
 
         echo $html;
     }
+
 
 
     public static function setNav(string $paginaAtiva = '')
@@ -106,37 +95,37 @@ class ClassLayout
                 <ul class='navbar-nav ms-lg-4'>
 
                     <li class='nav-item'>
-                        <a class='nav-link {$active('vendas')}' href='". DIRPAGE ."vendas'>
+                        <a class='nav-link {$active('vendas')}' href='" . DIRPAGE . "vendas'>
                             <i class='bi bi-cart-check'></i> Vendas
                         </a>
                     </li>
 
                     <li class='nav-item'>
-                        <a class='nav-link {$active('insumos')}' href='". DIRPAGE ."insumos'>
+                        <a class='nav-link {$active('insumos')}' href='" . DIRPAGE . "insumos'>
                             <i class='bi bi-box-seam'></i> Insumos
                         </a>
                     </li>
 
                     <li class='nav-item'>
-                        <a class='nav-link {$active('compras')}' href='". DIRPAGE ."compras'>
+                        <a class='nav-link {$active('compras')}' href='" . DIRPAGE . "compras'>
                             <i class='bi bi-bag-plus'></i> Compras
                         </a>
                     </li>
 
                     <li class='nav-item'>
-                        <a class='nav-link {$active('estoque')}' href='". DIRPAGE ."estoque'>
+                        <a class='nav-link {$active('estoque')}' href='" . DIRPAGE . "estoque'>
                             <i class='bi bi-clipboard-data'></i> Estoque
                         </a>
                     </li>
 
                     <li class='nav-item'>
-                        <a class='nav-link {$active('servicos')}' href='". DIRPAGE ."servicos'>
+                        <a class='nav-link {$active('servicos')}' href='" . DIRPAGE . "servicos'>
                             <i class='bi bi-gear'></i> Serviços
                         </a>
                     </li>
                     
                     <li class='nav-item'>
-                        <a class='nav-link {$active('clientes')}' href='". DIRPAGE ."clientes'>
+                        <a class='nav-link {$active('clientes')}' href='" . DIRPAGE . "clientes'>
                             <i class='bi bi-people'></i> Clientes
                         </a>
                     </li>
