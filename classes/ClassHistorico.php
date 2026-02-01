@@ -35,4 +35,35 @@ class ClassHistorico
             'tipo'=>$tipo
         ]);
     }
+    
+    #Listar Histórico
+    public function listarhistorico($id=null){
+        return $this->db->getByInsumo($id);
+    }
+
+    #Ajuste de estoque
+    public function justehistorico($insumoId, $quantidade, $tipo = 'ajuste', $origem='ajuste'){
+            
+            $b=$this->estoque->getEstoque($insumoId);
+            $this->estoque->ajusteEstoque(
+                $b['id'],
+                $quantidade,
+                $b['custo_medio']
+            );
+        $this->db->insert([
+            'insumo_id'    => $insumoId,
+            'quantidade'   => $quantidade,
+            'custo_medio'  => "",
+            'origem' => $origem,
+            'origemId' => "",
+            'saldo_resultante' => $quantidade,
+            'tipo'=>$tipo
+        ]);
+        $arrResponse=[
+            'message' =>"Estoque ajustado com sucesso!",
+            'success' => true,
+            "erros"=>null
+        ];
+        return $arrResponse;
+    }
 }

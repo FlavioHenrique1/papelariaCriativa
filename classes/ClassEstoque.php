@@ -25,13 +25,25 @@ class ClassEstoque {
         return json_encode($dados);
     }
 
+    public function ajusteEstoque($estoqueId,$novaQtd,$novoCusto){
+        $this->dbEstoque->update(
+            $estoqueId,
+            $novaQtd,
+            $novoCusto
+        );
+    }
+
+    public function getEstoque($insumoId) {
+        return $this->dbEstoque->getByInsumo($insumoId);
+    }
+
     /**
      * Movimenta o estoque
      * $tipo = entrada | saida
      */
     public function inserirEstoqueAtual($insumoId, $quantidade, $valorUnitario,$tipo="entrada")
     {
-        $estoque = $this->dbEstoque->getByInsumo($insumoId);
+        $estoque = $this->getEstoque($insumoId);
         if (!$estoque) {
             $saldo_resultante=$quantidade;
             $this->dbEstoque->insert([
@@ -62,13 +74,10 @@ class ClassEstoque {
                 $novaQtd   = $qtdAtual - $quantidade;
                 $novoCusto = $custoAtual; // custo não muda
             }
-            $this->dbEstoque->update(
-                $estoque['id'],
-                $novaQtd,
-                $novoCusto
-            );
+            $this->ajusteEstoque($estoque['id'],$novaQtd,$novoCusto);
             return $novaQtd;
         }
 
     }
+
 }

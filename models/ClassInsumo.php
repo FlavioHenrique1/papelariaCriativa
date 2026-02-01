@@ -6,18 +6,20 @@ class ClassInsumo extends ClassCrud{
     #Realizar a inserção no banco de dados
     public function inserInsuno($arrVar)
     {
-        $this->insertDB(
+        return $b=$this->insertDB(
             "insumos",
-            "?,?,?,?,?,?",
+            "?,?,?,?,?,?,?",
             array(
                 0,
                 $arrVar['nome'],
                 $arrVar['tamanho'],
+                $arrVar['unidade_base'],
                 $arrVar['descricao'],
                 $arrVar['estoqueMinimo'],
                 null
             )
         );
+        
     }
 
     #Veriricar se já existe o mesmo email cadastro no db
@@ -73,12 +75,14 @@ class ClassInsumo extends ClassCrud{
         if($r >0){
             $this->updateDB(
                 "insumos",
-                "nome=?, estoque=?, descricao=?",
+                "nome=?, tamanho=?, descricao=?, estoque_minimo=?, unidade_base=?",
                 "id=?",
                 array(
                     $dados['nome'],
-                    $dados['estoque'],
+                    $dados['tamanho'],
                     $dados['descricao'],
+                    $dados['estoqueMinimo'],
+                    $dados['unidade_base'],
                     $dados['id'],
                 )
             );
@@ -100,6 +104,22 @@ class ClassInsumo extends ClassCrud{
         );
         $r=$b->rowCount();
         return $r;
+    }
+
+        #Realizar a inserção no banco de dados
+    public function insertFatorConver($idInsumos,$unidades,$fator)
+    {
+        return $b=$this->insertDB(
+            "insumos_conversao",
+            "?,?,?,?",
+            array(
+                0,
+                $idInsumos,
+                $unidades,
+                $fator
+            )
+        );
+        
     }
 
 }

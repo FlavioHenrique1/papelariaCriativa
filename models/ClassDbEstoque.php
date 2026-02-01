@@ -26,9 +26,11 @@ class ClassDbEstoque extends ClassCrud
                 "",
                 []
             );
+                return $b->fetchAll(\PDO::FETCH_ASSOC);
         } else {
             $b = $this->selectDB(
                 "
+                    ea.id,
                     ea.insumo_id,
                     ea.quantidade,
                     ea.custo_medio,
@@ -41,8 +43,9 @@ class ClassDbEstoque extends ClassCrud
                 "WHERE ea.insumo_id=?",
                 [$insumoId]
             );
+            return $b->fetch(\PDO::FETCH_ASSOC);
         }
-        return $b->fetchAll(\PDO::FETCH_ASSOC);
+
     }
 
     public function insert($dados)

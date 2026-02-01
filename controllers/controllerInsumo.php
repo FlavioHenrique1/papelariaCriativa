@@ -8,14 +8,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'nome'      => $_POST['nome']      ?? '',
         'descricao' => $_POST['descricao'] ?? '',
         'tamanho' => $_POST['tamanho'] ?? '',
+        'unidade_base' => $_POST['unidade_base'] ?? '',
         'estoqueMinimo' =>$_POST['estoqueMinimo'] ?? ''
     ];
+    $action = $_POST['action'] ?? null;
 
-    $action = $_POST['action'] ?? '';
+    $unidades = $_POST['unidade_compra'] ?? [];
+    $fatores  = $_POST['fator'] ?? [];
 
     if (empty($dados['id']) && empty($action)) {
         // INSERT
-        echo $valInsumo->inserirInsumos($dados);
+        // var_dump($_POST);
+        $valid=$valInsumo->validarCampos($_POST, [
+            'nome' => 'Nome',
+            'tamanho' => 'Tamanho',
+            'descricao' =>'Descrição',
+            'unidade_base' => 'Unidade Base'
+        ]);
+        echo $valInsumo->inserirInsumos($dados,$unidades,$fatores);
 
     } elseif ($action === 'list') {
         // SELECT

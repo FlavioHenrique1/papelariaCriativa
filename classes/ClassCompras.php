@@ -15,7 +15,6 @@ class ClassCompras{
     // INSERIR INSUMOS
     public function inserirComprasDb($dados){
         
-
         $idCompra=$this->dbCompras->inserCompras($dados);
         $arrResponse=[
             'message' =>"Daodos inseridos com sucesso!",

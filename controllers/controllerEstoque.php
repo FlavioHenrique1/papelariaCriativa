@@ -11,7 +11,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // action via POST (insert | list | delete | update)
     $action = $_POST['action'] ?? 'insert';
     $dados = [
-        'id'            => $_POST['id'] ?? null,
+        'insumo_id'            => $_POST['insumo_id'] ?? null,
+        'quantidade'           => $_POST['quantidade'] ?? null,
+
     ];
 
     // Normaliza valor monetário vindo do front
@@ -27,10 +29,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         case 'list':
             echo json_encode(
-                $valEstoque->listarEstoque($dados['id'])
+                $valEstoque->listarEstoque($dados['insumo_id'])
             );
         break;
-
+        case 'historico':
+            echo json_encode(
+                $valHistorico->listarhistorico($dados['insumo_id'])
+            );
+        break;
+        case 'ajuste':
+            echo json_encode(
+                $valHistorico->justehistorico($dados['insumo_id'],$dados['quantidade'])
+            );
+        break;
         case 'delete':
             if ($dados['id']) {
                 // echo($dados['id']);

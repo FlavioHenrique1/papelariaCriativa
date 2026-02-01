@@ -6,14 +6,23 @@ class ClassDbHistorico extends ClassCrud {
 
     public function getByInsumo($insumoId)
     {
-        $b = $this->selectDB(
-            "*",
-            "estoque",
-            "WHERE insumo_id = ?",
-            [$insumoId]
-        );
+        if($insumoId==null){
+            $b = $this->selectDB(
+                "*",
+                "estoque",
+                "",
+                []
+            );
+        }else{
+            $b = $this->selectDB(
+                "*",
+                "estoque",
+                "WHERE insumo_id = ?",
+                [$insumoId]
+            );
+        }
 
-        return $b->fetch(\PDO::FETCH_ASSOC);
+        return $b->fetchAll(\PDO::FETCH_ASSOC);
     }
 
     public function insert($dados)
