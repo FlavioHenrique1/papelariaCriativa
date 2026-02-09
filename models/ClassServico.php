@@ -8,11 +8,12 @@ class ClassServico extends ClassCrud{
     {
         $this->insertDB(
             "servicos",
-            "?,?,?,?,?,?,?,?",
+            "?,?,?,?,?,?,?,?,?",
             array(
                 0,
                 $arrVar['nomeServico'],
                 $arrVar['categoria'],
+                $arrVar['tamanho'],
                 $arrVar['descricao'],
                 $arrVar['preco'],
                 $arrVar['status'],
@@ -117,7 +118,7 @@ class ClassServico extends ClassCrud{
     {
         $this->updateDB(
                 "servicos",
-                "nome=?, categoria=?, descricao=?, preco=? , status=?",
+                "nome=?, categoria=?, descricao=?, preco=? , status=?, tamanho=?",
                 "id=?",
                 array(
                 $arrVar['nomeServico'],
@@ -125,6 +126,7 @@ class ClassServico extends ClassCrud{
                 $arrVar['descricao'],
                 $arrVar['preco'],
                 $arrVar['status'],
+                $arrVar['tamanho'],
                 $idServico
                 )
             );

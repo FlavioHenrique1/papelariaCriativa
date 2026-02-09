@@ -23,7 +23,7 @@ class ClassInsumo extends ClassCrud{
     }
 
     #Veriricar se já existe o mesmo email cadastro no db
-    public function getInsumos($id)
+    public function getInsumos($id=null)
     {
         if($id){
             $b=$this->selectDB(
@@ -120,6 +120,33 @@ class ClassInsumo extends ClassCrud{
             )
         );
         
+    }
+
+    #Deleta insumos conversão
+    public function deleteConversao($idInsumo)
+    {
+        $this->deleteDB(
+            "insumos_conversao",
+            "insumo_id =?",
+            array(
+                $idInsumo
+            )
+        );
+    }
+
+    public function getConversao($id)
+    {
+        $b=$this->selectDB(
+            "*",
+            "insumos_conversao",
+            "WHERE insumo_id=?",
+            array(
+                $id,
+            )
+        );
+        $d=$b->fetchAll(\PDO::FETCH_ASSOC);
+        $r=$b->rowCount();
+        return $d;
     }
 
 }

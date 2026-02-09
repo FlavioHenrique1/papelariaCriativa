@@ -10,12 +10,12 @@
         </a>
     </div>
     
-
     <table class="table table-striped table-hover align-middle" id="tabelaServicos">
         <thead class="table-light text-center">
             <tr>
                 <th>Serviço</th>
-                <th>Descrição</th>
+                <th>Categoria</th>
+                <th>Tamanho</th>
                 <th>Preço</th>
                 <th>Status</th>
                 <th>Ações</th>
@@ -68,11 +68,18 @@
                             <label>Categoria</label>
                             <select name="categoria" id="m-categoria" required>
                                 <option value="">Selecione</option>
-                                <option value="impressao">Impressão</option>
-                                <option value="encadernacao">Encadernação</option>
-                                <option value="plastificacao">Plastificação</option>
-                                <option value="xerox">Xerox</option>
-                                <option value="outros">Outros</option>
+                                <option value="grafica">Gráfica</option>
+                                <option value="servicos">Serviços</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Tamanho</label>
+                            <select name="tamanho" id="tamanho" required>
+                                <option value="">Selecione</option>
+                                <option value="A4">A4</option>
+                                <option value="A3">A3</option>
+                                <option value="A5">A5</option>
+                                <option value="documento">Documento</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -88,7 +95,7 @@
                         <!-- INSUMOS -->
                         <h3>Insumos Utilizados</h3>
 
-                        <div id="insumos">
+                        <div id="insumos" class="row g-2 align-items-center">
                             <!-- <div class="insumo-item">
                 <select class="selectInsumos" name="insumo_nome[]" placeholder="Ex: Espiral" required>>
                     <option value="encadernacao">papel a4</option>

@@ -100,7 +100,10 @@ h2 {
     gap: 15px;
 }
 .selectInsumos{
-    width: 60%;
+    width: 50%;
+}
+.selectTamanho{
+    width: 30%;
 }
 /* Cada campo ocupa metade */
 .form-row .form-group {

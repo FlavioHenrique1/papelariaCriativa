@@ -24,38 +24,7 @@
             </tr>
         </thead>
         <tbody>
-            <!-- EXEMPLO (depois vem do BD) -->
-            <tr>
-                <td>1</td>
-                <td>Papel A4</td>
-                <td>descricao</td>
-                <td>
-                    <button class="btn btn-sm btn-warning"
-                        onclick="editarInsumo(1, 'Papel A4', 500)">
-                        Editar
-                    </button>
-                    <button class="btn btn-sm btn-danger"
-                        onclick="excluirInsumo(1)">
-                        Excluir
-                    </button>
-                </td>
-            </tr>
-
-            <tr>
-                <td>2</td>
-                <td>Espiral</td>
-                <td>120</td>
-                <td>
-                    <button class="btn btn-sm btn-warning"
-                        onclick="editarInsumo(2, 'Espiral', 120)">
-                        Editar
-                    </button>
-                    <button class="btn btn-sm btn-danger"
-                        onclick="excluirInsumo(2)">
-                        Excluir
-                    </button>
-                </td>
-            </tr>
+            
         </tbody>
     </table>
 </div>
@@ -84,7 +53,7 @@
 
                         <div class="col-md-6 mb-3">
                             <label class="form-label">Descrição</label>
-                            <input type="text" name="descricao" id="descricao" class="form-control" required>
+                            <input type="text" name="descricao" id="descricao" class="form-control">
                         </div>
                     </div>
 
@@ -99,7 +68,6 @@
                                 <option value="Documento">Documento</option>
                             </select>
                         </div>
-
                         <div class="col-md-4 mb-3">
                             <label class="form-label">Unidade de Medida (Base)</label>
                             <select name="unidade_base" id="unidade_base" class="form-control" required>
@@ -110,6 +78,8 @@
                                 <option value="g">Grama (g)</option>
                                 <option value="m">Metro (m)</option>
                                 <option value="cm">Centímetros (cm)</option>
+                                <option value="ml">Mililitro (mL)</option>
+                                <option value="l">litro (L)</option>
                             </select>
                         </div>
                         <div class="col-md-4 mb-3">
@@ -147,7 +117,7 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                     <button type="submit" class="btn btn-success">Salvar</button>
                 </div>
 
@@ -156,5 +126,5 @@
     </div>
 </div>
 
-<?php \Classes\ClassLayout::setFooter("insumos.js");?>
+<?php \Classes\ClassLayout::setFooter("insumos.js",['insumos']);?>
 

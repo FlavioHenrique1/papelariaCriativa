@@ -138,6 +138,23 @@
                                     <option value="Papel Fotográfico">Papel Fotográfico</option>
                                 </select>
                             </div>
+                            <div class="col-md-4">
+    <label class="form-label">Unidade de Compra</label>
+    <select id="compraUnidade" class="form-select" name="unidade_compra" required>
+        <option value="">Selecione</option>
+        <!-- JS -->
+    </select>
+</div>
+
+<div class="col-md-2">
+    <label class="form-label">Fator</label>
+    <input type="number"
+           id="compraFator"
+           class="form-control"
+           name="fator"
+           readonly>
+</div>
+
 
                             <div class="col-md-3">
                                 <label class="form-label">Quantidade</label>
@@ -148,7 +165,17 @@
                                 <label class="form-label">Valor Unitário</label>
                                 <input type="number" id="compraValor" class="form-control" step="0.01" name="valorUnitario" required>
                             </div>
-
+                            <div class="col-md-4">
+                                <label class="form-label">
+                                    Custo por unidade base
+                                    <small class="text-muted">(calculado)</small>
+                                </label>
+                                <input type="text"
+                                    id="custoUnitarioBase"
+                                    name="custoUnitarioBase"
+                                    class="form-control"
+                                    readonly>
+                            </div>
                             <div class="col-md-4">
                                 <label class="form-label">Data da Compra</label>
                                 <input type="date" id="compraData" class="form-control" name="data" required>
@@ -161,7 +188,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button class="btn btn-secondary" data-bs-dismiss="modal">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                             Cancelar
                         </button>
                         <button  type="submit" class="btn btn-success">

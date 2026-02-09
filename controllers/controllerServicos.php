@@ -8,6 +8,7 @@ $dadosServicos = [
     'id'        => $_POST['id'] ?? '',
     'nomeServico' => $_POST['nome_servico'] ?? '',
     'categoria' => $_POST['categoria'] ?? '',
+    'tamanho' => $_POST['tamanho'] ?? '',
     'descricao' => $_POST['descricao'] ?? '',
     'preco'   => $_POST['preco'] ?? 0,
     'status'   => $_POST['status'] ?? 'ativo',

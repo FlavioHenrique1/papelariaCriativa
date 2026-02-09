@@ -16,9 +16,6 @@ class ClassInsumos{
 
     // INSERIR INSUMOS
     public function inserirInsumos($dados,$unidades,$fatores){
-        // validar se tem o mesmo nome do insumo
-        // validar se os campos estão preenchidos
-
         if(count($this->getErro())>0){
             $arrResponse=[
                 "retorno"=>"erro",
@@ -41,19 +38,33 @@ class ClassInsumos{
     
     // INSERIR INSUMOS
     public function validarinsumos_conversao($idInsumos,$unidades,$fatores){
-
+        // getConversao
+        
+        if($this->inserirIns->getConversao($idInsumos)<1){
+            $this->inserirIns->deleteConversao($idInsumos);
+        }
         foreach ($unidades as $i => $unidade) {
             $fator = $fatores[$i] ?? null;
             $this->inserirIns->insertFatorConver($idInsumos,$unidade,$fator);
         }
-        
-        $arrResponse=[
-            'message' =>"Daodos inseridos com sucesso!",
-            'success' => true,
-            "erros"=>null
+    }
+
+    public function validarNome($nomeInsumos,$tamanho){
+        $retorno = $this->inserirIns->getInsumos();
+
+        $nomeInsumos = trim(strtolower($nomeInsumos));
+
+        foreach ($retorno as $insumo) {
+            if (strtolower(trim($insumo['nome'])) === strtolower(trim($nomeInsumos))
+                    &&
+                strtolower(trim($insumo['tamanho'])) === strtolower(trim($tamanho))) {
+                return $this->setErro("Ja existe um insumo com esse nome e tamanho!");
+            }
+        }
+        return [
+            'erro' => false
         ];
-        // $this->inserirIns->inserInsuno($dados);
-        // return json_encode($arrResponse);
+
     }
 
     /**
@@ -115,9 +126,10 @@ class ClassInsumos{
     }
 
     // EDITAR INSUMOS
-    public function atualizarInsumo($dados){
+    public function atualizarInsumo($dados,$unidades,$fatores){
     
         $retorno = $this->inserirIns->atualizarInsumos($dados);
+        $this->validarinsumos_conversao($dados['id'],$unidades,$fatores);
         if($retorno=true){
             $arrResponse=[
                 'message'=> "Dados atualizado com sucesso!",
@@ -146,5 +158,15 @@ class ClassInsumos{
     public function setErro($erro)
     {
         array_push($this->erro,$erro);
+    }
+
+    public function getConversaoIns($idInsumo){
+       $retorno = $this->inserirIns-> getConversao($idInsumo);
+        $arrResponse=[
+            'success' => true,
+            "data"=>$retorno,
+            "erros"=>null
+        ];
+        return json_encode($arrResponse);
     }
 }

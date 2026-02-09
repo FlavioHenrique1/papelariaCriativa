@@ -2,7 +2,7 @@
 $valInsumo = new Classes\ClassInsumos();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
+    
     $dados = [
         'id'        => $_POST['id']        ?? null,
         'nome'      => $_POST['nome']      ?? '',
@@ -12,13 +12,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'estoqueMinimo' =>$_POST['estoqueMinimo'] ?? ''
     ];
     $action = $_POST['action'] ?? null;
+    // echo $action;
 
     $unidades = $_POST['unidade_compra'] ?? [];
     $fatores  = $_POST['fator'] ?? [];
 
     if (empty($dados['id']) && empty($action)) {
         // INSERT
-        // var_dump($_POST);
+        $valInsumo->validarNome($dados['nome'],$dados['tamanho']);
         $valid=$valInsumo->validarCampos($_POST, [
             'nome' => 'Nome',
             'tamanho' => 'Tamanho',
@@ -40,11 +41,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo json_encode(['success' => false, 'message' => 'ID do insumo não informado.']);
         }
 
-    } else {
+    }elseif($action == 'getConversoes'){
+        echo $valInsumo->getConversaoIns($dados['id']);
+    }else {
 
         // UPDATE
         if ($dados['id']) {
-           echo $valInsumo->atualizarInsumo($dados);
+           echo $valInsumo->atualizarInsumo($dados,$unidades,$fatores);
         } else {
             echo json_encode(['success' => false, 'message' => 'ID necessário para atualizar.']);
         }
