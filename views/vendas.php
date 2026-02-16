@@ -8,7 +8,7 @@
 <?php \Classes\ClassLayout::setNav("vendas"); ?>
 
 <div class="caixa-wrapper">
-    <form name="formVendas" id="formVendas" action="" method="post">
+    <form name="formVendas" id="formVendas" method="post">
         <div class="caixa-card">
 
             <div class="caixa-header">
@@ -127,10 +127,15 @@
 
                 <div class="mb-2">
                     <label class="form-label">Valor Pago</label>
-                    <input type="number" class="form-control" id="pago" step="0.01">
+                    <input type="number" class="form-control" id="pago" step="0.01" name='valor_pago' required>
                 </div>
+                    <div class="mb-2">
+                        <label class="form-label">Desconto</label>
+                        <input type="number" class="form-control" id="desconto" step="0.01" name='desconto' >
+                    </div>
                 <div class="mb-2">
-                    <select class="form-select" name="" id="">
+                    <label class="form-label">Forma de pagamento</label>
+                    <select class="form-select" name="forma_pagamento" id="forma_pagamento">
                         <option value="dinheiro">Dinheiro</option>
                         <option value="pix">PIX</option>
                     </select>

@@ -1,47 +1,61 @@
 <?php
-use Classes\ClassCompras;
+session_start();
+
 use Classes\ClassHistorico;
+use Classes\ClassValidateVendas;
 
-$valCompras = new ClassCompras();
-$valEstoque=new ClassHistorico();
+$valVendas = new ClassValidateVendas();
+$valEstoque = new ClassHistorico();
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    
+$userId=$_SESSION['id'];
+$action = $_POST['action'] ?? '';
+    $valorTotal = 0;
+
     foreach ($_POST['servico_id'] as $i => $servicoId) {
-        $qtd   = $_POST['quantidade'][$i];
-        $unit  = $_POST['valor_unitario'][$i];
-        $total = $_POST['valor_total'][$i];
-        echo $servicoId;
-        echo $qtd;
-
-        // insert vendas_itens
+        $valorTotal += $_POST['valor_total'][$i];
     }
 
-    exit;
-    // action via POST (insert | list | delete | update)
-    $action = $_POST['action'] ?? 'insert';
-    // Normaliza valor monetário vindo do front
-    $valorTotal = $valCompras->normalizarValor($_POST['total'] ?? '0');
-    $quantidadeTotal = ($_POST['fator'] ?? 0) * ($_POST['quantidade'] ?? 0);
-    $dados = [
-        'id'            => $_POST['id'] ?? null,
-        'insumo'        => $_POST['insumo'] ?? null,
-        'quantidade'    => $quantidadeTotal,
-        'valorUnitario' => $valCompras->normalizarValor($_POST['valorUnitario'] ?? '0'),
-        'data'          => $_POST['data'] ?? date('Y-m-d'),
-        'total'         => $valorTotal,
-        'status'        => "Concluída",
-    ];
-    
+    $desconto = (float) ($_POST['desconto'] ?? 0);
+    $valorTotal = (float) $valorTotal;
+
+    $valorFinal = $valorTotal - $desconto;
+
+$dados = [
+    'id'            => $_POST['id'] ?? null,
+    'cliente_nome'        => $_POST['cliente_nome'] ?? null,
+    'cliente_contato'    => $_POST['cliente_contato'] ?? null,
+    'valor_pago' => (float) ($_POST['valor_pago'] ?? '0'),
+    'desconto'          => $_POST['desconto'] ?? '0',
+    'forma_pagamento'         => $_POST['forma_pagamento'] ?? null,
+    'valorTotal'         => $valorFinal,
+    'status'        => "Concluída",
+];
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST'  && empty($action)) {
+    // 1️⃣ Inserir venda
+    $dadosIncVendas = $valVendas->inserirVendasDb($userId,$dados);
+    var_dump($_POST);
+    if($dadosIncVendas['success']== true){
+        $idVenda=$dadosIncVendas['idvendas'];
+        foreach ($_POST['servico_id'] as $i => $servicoId) {
+            $qtd   = $_POST['quantidade'][$i];
+            $custoUnit  = $_POST['valor_unitario'][$i];
+            $total = $_POST['valor_total'][$i];
+            $servico_id = $_POST['servico_id'][$i];
+            
+            $dadosItens=[
+                'idVendas'  => $idVenda,
+                'servico_id'  => $servico_id,
+                'qtd'  => $qtd,
+                'custoUnit'  => $custoUnit,
+                'total' =>$total
+            ];
+            // insert vendas_itens
+            $valVendas->inserirItensVendasDb($dadosItens);
+
+        }
+    }
     // switch ($action) {
-
-    //     case 'insert':
-    //         $retorno=$valCompras->inserirComprasDb($dados);
-    //         $valEstoque->movimentar($dados['insumo'],$dados['quantidade'],$dados['valorUnitario'],"entrada","compra",$retorno['idCompra']);
-
-    //         echo json_encode($retorno);
-    //     break;
-
     //     case 'list':
     //         echo json_encode(
     //             $valCompras->listarCompras($dados['id'])
@@ -56,17 +70,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     //             echo json_encode([
     //                 'success' => false,
     //                 'message' => 'ID não informado'
-    //             ]);
-    //         }
-    //     break;
-
-    //     case 'update':
-    //         if ($dados['id']) {
-    //             // echo $valCompras->atualizarCompra($dados);
-    //         } else {
-    //             echo json_encode([
-    //                 'success' => false,
-    //                 'message' => 'ID necessário para atualizar'
     //             ]);
     //         }
     //     break;

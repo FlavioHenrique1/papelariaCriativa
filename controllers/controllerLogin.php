@@ -6,6 +6,6 @@ $validate->validateEmail($email);
 $validate->validateIssetEmail($email,"login");
 #$validate->validateStrongSenha($senha);
 $validate->validateSenha($email,$senha);
-$validate->validateUserActive($email);
+// $validate->validateUserActive($email);
 $validate->validateAttemptLogin();
 echo $validate->validateFinalLogin($email);

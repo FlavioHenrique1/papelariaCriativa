@@ -69,6 +69,7 @@ class ClassSessions{
         $this->verifyIdSessions();
         $_SESSION["login"]=true;
         $_SESSION["time"]=time();
+        $_SESSION["id"]=$this->login->getDataUser($email)['data']['id'];
         $_SESSION["name"]=$this->login->getDataUser($email)['data']['nome'];
         $_SESSION["email"]=$this->login->getDataUser($email)['data']['email'];
         $_SESSION["permition"]=$this->login->getDataUser($email)['data']['permissoes'];

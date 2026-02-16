@@ -12,6 +12,7 @@ class ClassLogin extends ClassCrud{
 
     public function __construct()
     {
+        parent::__construct();
         $this->trait=TraitGetIp::getUserIp();
         $this->dateNow=date("Y-m-d H:i:s");
     }
@@ -20,6 +21,7 @@ class ClassLogin extends ClassCrud{
     #Retorna os dados do usuário
     public function getDataUser($email)
     {
+        
         $b=$this->selectDB(
             "*",
             "users",
@@ -28,6 +30,7 @@ class ClassLogin extends ClassCrud{
                 $email
             )
         );
+        
         $f=$b->fetch(\PDO::FETCH_ASSOC);
         $r=$b->rowCount();
         return $arrData=[

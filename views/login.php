@@ -20,4 +20,4 @@
 
     </div>
 
-<?php \Classes\ClassLayout::setFooter();?>
+<?php \Classes\ClassLayout::setFooter('app.js');?>
