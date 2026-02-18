@@ -14,7 +14,7 @@
             <div class="caixa-header">
                 <h3>🖨️ Caixa – Gráfica Rápida</h3>
             </div>
-
+            <div class="appMessage" id="appMessage"></div>
             <!-- CLIENTE -->
             <div class="caixa-section">
                 <div class="section-header">
@@ -56,7 +56,7 @@
                     <div class="row g-2 mb-3">
                         <div class="col-md-6">
                             <label class="form-label">Serviço</label>
-                            <select class="form-select" id="servicoSelect" name="servicoSelect[]">
+                            <select class="form-select" id="servicoSelect">
                                 <option value="5">Xerox P&B</option>
                                 <option value="7">Xerox Colorido</option>
                                 <option value="10">Plastificação</option>
@@ -66,7 +66,7 @@
 
                         <div class="col-md-3">
                             <label class="form-label">Valor</label>
-                            <input type="text" class="form-control" id="custoUnit" name="custoUnit[]" >
+                            <input type="text" class="form-control" id="custoUnit" >
                             <!-- <select class="form-select" id="tamanhoSelect">
                                 <option>A4</option>
                                 <option>A5</option>
@@ -77,7 +77,7 @@
 
                         <div class="col-md-3">
                             <label class="form-label">Qtd</label>
-                            <input type="number" class="form-control" id="qtd" value="1" min="1" name="quantidade[]">
+                            <input type="number" class="form-control" id="qtd" value="1" min="1">
                         </div>
                     </div>
 

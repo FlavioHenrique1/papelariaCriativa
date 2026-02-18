@@ -1,0 +1,24 @@
+body {
+    background: #f4f6f9;
+}
+
+.card {
+    border-radius: 20px;
+}
+
+.table thead th {
+    font-weight: 600;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #245b5f, #6f42c1);
+    border: none;
+}
+
+.btn-primary:hover {
+    opacity: 0.9;
+}
+
+#appMessage {
+    transition: all 0.3s ease;
+}

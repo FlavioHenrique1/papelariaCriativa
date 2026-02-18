@@ -2,14 +2,22 @@
 namespace Classes;
 
 use Models\ClassDbVendas;
+use Classes\ClassServicos;
+use Classes\ClassHistorico;
+
 
 class ClassValidateVendas{
         private $dbVendas;
+        private $serviços;
+        private $historico;
         
 
     public function __construct()
     {
         $this->dbVendas=new ClassDbVendas();
+        $this->serviços=new ClassServicos();
+        $this->historico=new ClassHistorico();
+
     }
 
 
@@ -29,51 +37,36 @@ class ClassValidateVendas{
 
     // // INSERIR INSUMOS
     public function inserirItensVendasDb($dados){
-        
-        $retorno=$this->dbVendas->inserItensVendas($dados);
-        $arrResponse=[
-            'message' =>"Daodos inseridos com sucesso!",
-            'success' => true,
-            "erros"=>null
-        ];
-        return $arrResponse;
+        $dadosServicos=$this->extrairServicos($dados['servico_id'],$dados['idVendas'],$dados['qtd']);
+        if($dadosServicos['success']){
+            $retorno=$this->dbVendas->inserItensVendas($dados);
+            $arrResponse=[
+                'message' =>"Daodos inseridos com sucesso!",
+                'success' => true,
+                "erros"=>null
+            ];
+            return $arrResponse;
+        }else{
+            $arrResponse=[
+                'message' =>$dadosServicos['message'],
+                'success' => false,
+            ];
+            return $arrResponse;
+        }
     }
 
-    function normalizarValor($valor){
-        // Remove tudo que não for número, vírgula ou ponto
-        $valor = preg_replace('/[^\d,\.]/', '', $valor);
+    public function extrairServicos($id,$idservico=0,$qtd){
+       $insumosServicos=$this->serviços->getInsumos($id);
+       
+        foreach($insumosServicos as $insumo){
+            $insumoId = $insumo['id'];
+            $quantidade = $insumo['quantidade'];
 
-        // Se vier no padrão brasileiro: 1.234,56
-        if (strpos($valor, ',') !== false) {
-            $valor = str_replace('.', '', $valor); // remove milhar
-            $valor = str_replace(',', '.', $valor); // vírgula vira ponto
+            $qtdTotal=$quantidade*$qtd;
+            $retorn=$this->historico->movimentar($insumoId,$qtdTotal,0,"saida","vendas",$idservico);
         }
 
-    return (float) $valor;
-}
+        return $retorn;
 
-    // // INSERIR COMPRAS
-    // public function listarCompras($id=null){
-        
-    //     $arrResponse=[
-    //         'message' =>"Daodos inseridos com sucesso!",
-    //         'success' => true,
-    //         "erros"=>null
-    //     ];
-    //     $dados=$this->dbCompras->getComprasItens($id);
-    //     return json_encode($dados);
-    // }
-
-    //     // APAGAR COMPRAS
-    // public function apagarCompras($id=null){
-        
-    //     $arrResponse=[
-    //         'message' =>"Daodos inseridos com sucesso!",
-    //         'success' => true,
-    //         "erros"=>null
-    //     ];
-    //     $this->dbCompras->deleteCompras($id);
-    //     return json_encode($arrResponse);
-    // }
-
+    }
 }

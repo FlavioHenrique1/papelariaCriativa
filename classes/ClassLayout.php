@@ -25,7 +25,9 @@ class ClassLayout
         $html .= "    <meta name='format-detection' content='telephone=no'>\n";
         $html .= "    <meta name='description' content='$description'>\n";
         $html .= "    <title>$title</title>\n";
+
         #FAVICON
+        $html .= "<link rel='icon' type='image/x-icon' href='" . DIRIMG . "iconLogo2.ico'>\n";
         $html .= "<link rel='stylesheet' href='" . DIRCSS . "bootstrap.min.css'>\n";
         $html .= "<link href='https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css' rel='stylesheet'>\n";
         $html .= "<link rel='stylesheet' href='" . DIRCSS . "style.css'>\n";
@@ -82,7 +84,7 @@ class ClassLayout
         echo "
     <nav class='navbar navbar-expand-lg navbar-dark bg-dark'>
         <div class='container-fluid'>
-            <a class='navbar-brand fw-bold' href='/'>
+            <a class='navbar-brand fw-bold' href='". DIRPAGE ."'>
                 <i class='bi bi-shop'></i> Papelaria
             </a>
 

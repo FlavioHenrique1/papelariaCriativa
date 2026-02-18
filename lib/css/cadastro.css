@@ -1,0 +1,16 @@
+body {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+}
+
+.card {
+    backdrop-filter: blur(10px);
+}
+
+.btn-primary {
+    background-color: #6f42c1;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #5936a2;
+}

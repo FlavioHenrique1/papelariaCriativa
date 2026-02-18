@@ -1,33 +1,59 @@
-<?php \Classes\ClassLayout::setHeader('Cadastro','Realize seu cadastro em nosso sistema');?>
+<?php \Classes\ClassLayout::setHeader('insumos','Realize so cadastro dos insumos',"Flávio","insumos.css");?>
 <?php \Classes\ClassLayout::setNav("insumos");?>
     
 <div class="container mt-4">
 
-    <div class="d-flex justify-content-between align-items-center mb-3">
-        <h4>Insumos</h4>
-        <button class="btn btn-success"onclick="novoInsumo()">
-            <i class="bi bi-plus-circle"></i> Novo Insumo
-        </button>
+    <div class="card shadow-sm border-0 rounded-4">
+        <div class="card-body">
+
+            <!-- Cabeçalho -->
+            <div class="d-flex flex-column flex-md-row 
+                        justify-content-between 
+                        align-items-md-center 
+                        gap-2 mb-3">
+
+                <h5 class="mb-0">Insumos</h5>
+
+                <button class="btn btn-primary rounded-3"
+                        onclick="novoInsumo()">
+                    <i class="bi bi-plus-circle"></i> Novo Insumo
+                </button>
+            </div>
+
+            <!-- Mensagem -->
+            <div id="appMessage"
+                 class="alert d-none rounded-3"
+                 role="alert">
+            </div>
+
+            <!-- Tabela -->
+            <div class="table-responsive">
+                <table class="table table-hover align-middle"
+                       id="tabelaInsumos">
+
+                    <thead class="table-light">
+                        <tr>
+                            <th>Nome do Insumo</th>
+                            <th>Descrição</th>
+                            <th>Tamanho</th>
+                            <th>Unidade Base</th>
+                            <th>Estoque Mínimo</th>
+                            <th width="160" class="text-center">Ações</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <!-- JS preenche -->
+                    </tbody>
+
+                </table>
+            </div>
+
+        </div>
     </div>
-        <div id="appMessage" class="alert d-none" role="alert"></div>
-    <!-- TABELA DE INSUMOS -->
-    <table class="table table-bordered table-hover" id="tabelaInsumos">
-        <thead class="table-light">
-            <tr>
-                <!-- <th>ID</th> -->
-                <th>Nome do Insumo</th>
-                <th>Descrição</th>
-                <th>Tamanho</th>
-                <th>Unidade Base</th>
-                <th>Estoque Mínimo</th>
-                <th width="160">Ações</th>
-            </tr>
-        </thead>
-        <tbody>
-            
-        </tbody>
-    </table>
+
 </div>
+
 
 <!-- MODAL INCLUIR / EDITAR INSUMO -->
 <div class="modal fade" id="modalInsumo" tabindex="-1">

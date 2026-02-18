@@ -5,9 +5,19 @@ use Classes\ClassHistorico;
 use Classes\ClassValidateVendas;
 
 $valVendas = new ClassValidateVendas();
-$valEstoque = new ClassHistorico();
 
-$userId=$_SESSION['id'];
+
+// $userId=$_SESSION['id'];
+if (!isset($_POST['servico_id']) || empty($_POST['servico_id'])) {
+    echo json_encode([
+        "status" => "erro",
+        "message" => "Favor incluir itens para continuar na venda!"
+    ]);
+    exit;
+}
+
+$userId=5;
+
 $action = $_POST['action'] ?? '';
     $valorTotal = 0;
 
@@ -34,7 +44,7 @@ $dados = [
 if ($_SERVER['REQUEST_METHOD'] === 'POST'  && empty($action)) {
     // 1️⃣ Inserir venda
     $dadosIncVendas = $valVendas->inserirVendasDb($userId,$dados);
-    var_dump($_POST);
+
     if($dadosIncVendas['success']== true){
         $idVenda=$dadosIncVendas['idvendas'];
         foreach ($_POST['servico_id'] as $i => $servicoId) {
@@ -50,34 +60,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'  && empty($action)) {
                 'custoUnit'  => $custoUnit,
                 'total' =>$total
             ];
-            // insert vendas_itens
-            $valVendas->inserirItensVendasDb($dadosItens);
 
+            // insert vendas_itens
+            echo json_encode($valVendas->inserirItensVendasDb($dadosItens));
         }
     }
-    // switch ($action) {
-    //     case 'list':
-    //         echo json_encode(
-    //             $valCompras->listarCompras($dados['id'])
-    //         );
-    //     break;
 
-    //     case 'delete':
-    //         if ($dados['id']) {
-    //             // echo($dados['id']);
-    //             echo $valCompras->apagarCompras($dados['id']);
-    //         } else {
-    //             echo json_encode([
-    //                 'success' => false,
-    //                 'message' => 'ID não informado'
-    //             ]);
-    //         }
-    //     break;
-
-    //     default:
-    //         echo json_encode([
-    //             'success' => false,
-    //             'message' => 'Ação inválida'
-    //         ]);
-    // }
 }

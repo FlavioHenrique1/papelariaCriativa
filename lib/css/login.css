@@ -2,16 +2,23 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Segoe UI', sans-serif;
 }
 
 body {
-    background: #f2f2f2;
     height: 100vh;
+    background: linear-gradient(135deg, #245b5f, #6f42c1);
+    /* background-image: url('../../img/imagemFundo.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .container {
-    height: 100%;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -19,58 +26,120 @@ body {
 
 .login-box {
     background: #ffffff;
-    width: 360px;
-    padding: 40px 30px;
-    border-radius: 16px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    width: 380px;
+    padding: 45px 35px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    text-align: center;
+    animation: fadeIn 0.6s ease-in-out;
 }
 
 .logo {
-    display: block;
-    margin: 0 auto 30px auto;
-    width: 150px;
+    width: 140px;
+    margin-bottom: 25px;
+    /* border-radius: 50%; */
 }
 
 .login-box input {
     width: 100%;
     padding: 14px;
-    margin-bottom: 16px;
-    border-radius: 8px;
+    margin-bottom: 18px;
+    border-radius: 10px;
     border: 1px solid #ddd;
     font-size: 15px;
+    transition: 0.3s;
 }
 
 .login-box input:focus {
+    border-color: #6f42c1;
+    box-shadow: 0 0 0 3px rgba(111,66,193,0.15);
     outline: none;
-    border-color: #245b5f;
 }
 
-.actions {
+.remember {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-}
-
-button {
-    background: #245b5f;
-    color: #fff;
-    border: none;
-    padding: 12px 28px;
-    border-radius: 8px;
-    font-size: 15px;
-    cursor: pointer;
-}
-
-button:hover {
-    opacity: 0.9;
-}
-
-.actions a {
+    gap: 8px;
+    margin-bottom: 18px;
     font-size: 14px;
-    text-decoration: none;
-    color: #444;
+    color: #555;
+    justify-content: flex-start;
 }
 
-.actions a:hover {
+.remember input[type="checkbox"] {
+    width: auto;
+}
+
+/* 🔘 BOTÃO DEGRADÊ */
+.btn-login {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    background: linear-gradient(135deg, #245b5f, #6f42c1);
+    transition: all 0.3s ease;
+}
+
+.btn-login:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* LINKS */
+.links {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.links a {
+    text-decoration: none;
+    color: #6f42c1;
+    font-weight: 500;
+}
+
+.links a:hover {
     text-decoration: underline;
+}
+
+.register-link {
+    margin-top: 12px;
+    font-size: 14px;
+    color: #555;
+}
+
+.register-link a {
+    color: #245b5f;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}
+
+/* Animação */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 480px) {
+    .login-box {
+        width: 90%;
+        padding: 35px 25px;
+    }
+
+    .logo {
+        width: 120px;
+    }
 }

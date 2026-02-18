@@ -24,16 +24,26 @@ class ClassHistorico
      */
     public function movimentar($insumoId, $quantidade, $valorUnitario, $tipo = 'entrada', $origem, $origemId)
     {
-        $saldo = $this->estoque->inserirEstoqueAtual($insumoId, $quantidade, $valorUnitario, $tipo);
-        return $this->db->insert([
-            'insumo_id'    => $insumoId,
-            'quantidade'   => $quantidade,
-            'custo_medio'  => $valorUnitario,
-            'origem' => $origem,
-            'origemId' => $origemId,
-            'saldo_resultante' => $saldo,
-            'tipo'=>$tipo
-        ]);
+        $retorno = $this->estoque->inserirEstoqueAtual($insumoId, $quantidade, $valorUnitario, $tipo);
+        if($retorno['success']){
+            $saldo=$retorno['dados'];
+            $retorno=$this->db->insert([
+                'insumo_id'    => $insumoId,
+                'quantidade'   => $quantidade,
+                'custo_medio'  => $valorUnitario,
+                'origem' => $origem,
+                'origemId' => $origemId,
+                'saldo_resultante' => $saldo,
+                'tipo'=>$tipo
+            ]);
+            $arrResponse=[
+                'message' =>"Dados Inseridos com sucesso!",
+                'success' => true,
+                'dados'=>$retorno
+            ];
+            return $arrResponse;
+        }
+        return $retorno;
     }
     
     #Listar Histórico

@@ -1,16 +1,45 @@
-<?php \Classes\ClassLayout::setHeader('Esqueci minha senha','Recupere sua senha.');?>
-    
-    <div class="topFaixa float w100 center">
-        Esqueci minha senha
-    </div>
-    <div class="retornoSen float w100 center"></div>
-    <form  name="formSenha" id="formSenha" action="<?php echo DIRPAGE.'controllers/controllerSenha';?>" method="post">
-        <div class="cadastro float center">
-            <input class="float w100 h40" type="email" id="email" name="email" placeholder="Email:" required>
-            <input class="float w100 h40" type="text" id="dataNascimento" name="dataNascimento" placeholder="Data de Nascimento:" required>
-            <input class="inlineBlock h40" type="submit" value="Solicitar">            
-        
+<?php \Classes\ClassLayout::setHeader('Esqueci minha senha','Recupere sua senha.',"","login.css");?>
+
+<div class="container">
+
+    <div class="login-box">
+
+        <img src="<?php echo DIRIMG.'Logo-removebg-preview.png';?>" 
+             alt="Arte no Papel Alto do Sol" 
+             class="logo">
+
+        <h3 class="title">Recuperar Senha</h3>
+
+        <div class="retornoSen"></div>
+
+        <form name="formSenha" 
+              id="formSenha" 
+              action="<?php echo DIRPAGE.'controllers/controllerSenha';?>" 
+              method="post">
+
+            <input type="email" 
+                   name="email" 
+                   placeholder="Seu email" 
+                   required>
+
+            <input type="date" 
+                   name="dataNascimento" 
+                   required>
+
+            <button type="submit" class="btn-login">
+                Solicitar recuperação
+            </button>
+
+        </form>
+
+        <div class="links">
+            <a href="<?php echo DIRPAGE.'login';?>">
+                Voltar para login
+            </a>
         </div>
-    </form>
+
+    </div>
+
+</div>
 
 <?php \Classes\ClassLayout::setFooter();?>
