@@ -1,6 +1,6 @@
 
 # Dependências
-/vendor/
+
 
 # Configurações locais
 database.php
