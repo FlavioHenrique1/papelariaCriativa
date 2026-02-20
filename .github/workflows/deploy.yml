@@ -28,6 +28,5 @@ jobs:
             **/.git*
             **/.github*
             **/node_modules/**
-            **/vendor/**
             README.md
             .env
