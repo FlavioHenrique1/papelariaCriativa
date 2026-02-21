@@ -47,7 +47,7 @@ class ClassCompras{
             "erros"=>null
         ];
         $dados=$this->dbCompras->getComprasItens($id);
-        return json_encode($dados);
+        return $dados;
     }
 
         // APAGAR COMPRAS

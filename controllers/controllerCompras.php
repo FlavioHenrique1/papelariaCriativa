@@ -33,9 +33,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         break;
 
         case 'list':
-            echo json_encode(
-                $valCompras->listarCompras($dados['id'])
-            );
+            $retorno = $valCompras->listarCompras($dados['id']);
+            echo json_encode($retorno);
         break;
 
         case 'delete':
