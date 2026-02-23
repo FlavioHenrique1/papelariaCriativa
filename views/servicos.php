@@ -1,4 +1,5 @@
 <?php \Classes\ClassLayout::setHeader('Cadastro', 'Realize seu cadastro em nosso sistema', "", "cadastroservicos.css"); ?>
+<?php \Classes\ClassLayout::setHeadRestrito("user");?>
 <?php \Classes\ClassLayout::setNav("servicos");?>
 
 <div class="container mt-4">

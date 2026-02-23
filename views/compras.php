@@ -1,4 +1,5 @@
 <?php \Classes\ClassLayout::setHeader('Login', 'Entre com seu usuário e senha', "", "compras.css"); ?>
+<?php \Classes\ClassLayout::setHeadRestrito("user");?>
 <?php \Classes\ClassLayout::setNav("compras"); ?>
 
 

@@ -87,14 +87,14 @@ class ClassValidate{
         }
     }
 
-
     #Validação se o dado é uma data
     public function validateData($par)
     {
-        $data=\DateTime::createFromFormat("d/m/Y",$par);
-        if(($data) && ($data->format("d/m/Y") === $par)){
+        $data = \DateTime::createFromFormat("Y-m-d", $par);
+
+        if (($data) && ($data->format("Y-m-d") === $par)) {
             return true;
-        }else{
+        } else {
             $this->setErro("Data inválida!");
             return false;
         }

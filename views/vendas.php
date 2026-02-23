@@ -4,7 +4,7 @@
     '',
     'vendas.css'
 ); ?>
-
+<?php \Classes\ClassLayout::setHeadRestrito("user");?>
 <?php \Classes\ClassLayout::setNav("vendas"); ?>
 
 <div class="caixa-wrapper">

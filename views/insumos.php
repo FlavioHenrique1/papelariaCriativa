@@ -1,4 +1,5 @@
 <?php \Classes\ClassLayout::setHeader('insumos','Realize so cadastro dos insumos',"Flávio","insumos.css");?>
+<?php \Classes\ClassLayout::setHeadRestrito("user");?>
 <?php \Classes\ClassLayout::setNav("insumos");?>
     
 <div class="container mt-4">

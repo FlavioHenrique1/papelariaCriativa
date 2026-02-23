@@ -1,5 +1,6 @@
 <?php \Classes\ClassLayout::setHeader('Cadastro','Realize seu cadastro em nosso sistema',"","cadastroservicos.css");?>
-    
+<?php \Classes\ClassLayout::setHeadRestrito("user");?>
+
 <div class="container">
     <h2>Cadastro de Serviços</h2>
 
