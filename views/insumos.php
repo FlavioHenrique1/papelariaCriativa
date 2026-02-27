@@ -26,7 +26,27 @@
                  class="alert d-none rounded-3"
                  role="alert">
             </div>
-
+    <!-- FILTRO -->
+    <div class="card mb-4">
+        <div class="card-body">
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <input type="text" id="buscarCompra" class="form-control" placeholder="Buscar por insumo...">
+                </div>
+                <div class="col-md-3">
+                    <select class="form-select" id="insumoSelect">
+                        <option value="">Todos os insumos</option>
+                    </select>
+                </div>
+                <div class="col-md-3 text-end">
+                    <button class="btn btn-outline-secondary w-100">
+                        <i class="bi bi-funnel"></i> Filtrar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="appMessage" class="alert d-none" role="alert"></div>
             <!-- Tabela -->
             <div class="table-responsive">
                 <table class="table table-hover align-middle"
