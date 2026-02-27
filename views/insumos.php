@@ -113,7 +113,7 @@
                             <select name="unidade_base" id="unidade_base" class="form-control" required>
                                 <option value="">Selecione</option>
                                 <option value="unidade">Unidade</option>
-                                <option value="folha">Folhas</option>
+                                <option value="Folhas">Folhas</option>
                                 <option value="ml">Mililitro (ml)</option>
                                 <option value="g">Grama (g)</option>
                                 <option value="m">Metro (m)</option>

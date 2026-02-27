@@ -40,7 +40,7 @@ class ClassInsumos{
     public function validarinsumos_conversao($idInsumos,$unidades,$fatores){
         // getConversao
         
-        if($this->inserirIns->getConversao($idInsumos)<1){
+        if($this->inserirIns->getConversao($idInsumos)>1){
             $this->inserirIns->deleteConversao($idInsumos);
         }
         foreach ($unidades as $i => $unidade) {
