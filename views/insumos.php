@@ -83,16 +83,29 @@
                             <input type="text" name="descricao" id="descricao" class="form-control">
                         </div>
                     </div>
-
                     <div class="row">
                         <div class="col-md-4 mb-3">
                             <label class="form-label">Tamanho</label>
                             <select name="tamanho" id="tamanho" class="form-control" required>
                                 <option value="">Selecione</option>
-                                <option value="A4">A4</option>
                                 <option value="A3">A3</option>
+                                <option value="A4">A4</option>
                                 <option value="A5">A5</option>
+                                <option value="A6">A6</option>
                                 <option value="Documento">Documento</option>
+                                <option value="7">7</option>
+                                <option value="9">9</option>
+                                <option value="12">12</option>
+                                <option value="14">14</option>
+                                <option value="17">17</option>
+                                <option value="20">20</option>
+                                <option value="23">23</option>
+                                <option value="25">25</option>
+                                <option value="29">29</option>
+                                <option value="33">33</option>
+                                <option value="40">40</option>
+                                <option value="45">45</option>
+                                <option value="50">50</option>
                             </select>
                         </div>
                         <div class="col-md-4 mb-3">
@@ -100,13 +113,14 @@
                             <select name="unidade_base" id="unidade_base" class="form-control" required>
                                 <option value="">Selecione</option>
                                 <option value="unidade">Unidade</option>
-                                <option value="folha">Folha</option>
+                                <option value="folha">Folhas</option>
                                 <option value="ml">Mililitro (ml)</option>
                                 <option value="g">Grama (g)</option>
                                 <option value="m">Metro (m)</option>
                                 <option value="cm">Centímetros (cm)</option>
-                                <option value="ml">Mililitro (mL)</option>
-                                <option value="l">litro (L)</option>
+                                <option value="l">Litro (L)</option>
+                                <option value="pc">Pacote</option>
+                                <option value="mm">Milimetro (mm)</option>
                             </select>
                         </div>
                         <div class="col-md-4 mb-3">

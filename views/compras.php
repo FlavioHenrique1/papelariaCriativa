@@ -1,4 +1,4 @@
-<?php \Classes\ClassLayout::setHeader('Login', 'Entre com seu usuário e senha', "", "compras.css"); ?>
+<?php \Classes\ClassLayout::setHeader('Compras', 'Visualizar estoque', "", "compras.css"); ?>
 <?php \Classes\ClassLayout::setHeadRestrito("user");?>
 <?php \Classes\ClassLayout::setNav("compras"); ?>
 
@@ -154,6 +154,27 @@
            class="form-control"
            name="fator"
            readonly>
+</div>
+
+<div class="col-md-2">
+    <label class="form-label">Tamanho</label>
+<select name="tamanho" id="tamanho" class="form-control" required>
+                                <option value="">Selecione</option>
+                                <option value="A3">A3</option>
+                                <option value="A4">A4</option>
+                                <option value="A5">A5</option>
+                                <option value="A6">A6</option>
+                                <option value="Documento">Documento</option>
+                                <option value="7">7</option>
+                                <option value="9">9</option>
+                                <option value="12">12</option>
+                                <option value="A6">14</option>
+                                <option value="A6">17</option>
+                                <option value="A6">A6</option>
+                                <option value="A6">A6</option>
+                                <option value="A6">A6</option>
+                                <option value="A6">A6</option>
+                            </select>
 </div>
 
 

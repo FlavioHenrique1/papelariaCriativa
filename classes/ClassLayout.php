@@ -126,11 +126,11 @@ class ClassLayout
                         </a>
                     </li>
                     
-                    <li class='nav-item'>
+                    <!-- <li class='nav-item'>
                         <a class='nav-link {$active('clientes')}' href='" . DIRPAGE . "clientes'>
                             <i class='bi bi-people'></i> Clientes
                         </a>
-                    </li>
+                    </li>-->
 
                 </ul>
 

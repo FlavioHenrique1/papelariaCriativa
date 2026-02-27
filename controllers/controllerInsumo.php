@@ -23,7 +23,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $valid=$valInsumo->validarCampos($_POST, [
             'nome' => 'Nome',
             'tamanho' => 'Tamanho',
-            'descricao' =>'Descrição',
             'unidade_base' => 'Unidade Base'
         ]);
         echo $valInsumo->inserirInsumos($dados,$unidades,$fatores);

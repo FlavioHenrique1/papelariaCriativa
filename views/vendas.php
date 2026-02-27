@@ -66,7 +66,7 @@
 
                         <div class="col-md-3">
                             <label class="form-label">Valor</label>
-                            <input type="text" class="form-control" id="custoUnit" >
+                            <input type="text" class="form-control" id="custoUnit" readonly>
                             <!-- <select class="form-select" id="tamanhoSelect">
                                 <option>A4</option>
                                 <option>A5</option>
