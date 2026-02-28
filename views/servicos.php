@@ -49,7 +49,7 @@
 
             <div class="modal-body">
 
-                <form id="formServico">
+                <form id="formServico" name="formServico" method="post">
 
                     <input type="hidden" id="idservico" name="idservico">
 
@@ -65,7 +65,7 @@
                             <select class="form-select" name="categoria" id="m-categoria" required>
                                 <option value="">Selecione</option>
                                 <option value="grafica">Gráfica</option>
-                                <option value="servicos">Serviços</option>
+                                <option value="atelie">Ateliê</option>
                             </select>
                         </div>
 
@@ -93,10 +93,10 @@
                             </select>
                         </div>
 
-                        <div class="col-12">
+                        <!-- <div class="col-12">
                             <label class="form-label">Descrição</label>
                             <textarea class="form-control" rows="3" name="descricao" id="m-descricao"></textarea>
-                        </div>
+                        </div> -->
 
                     </div>
 
