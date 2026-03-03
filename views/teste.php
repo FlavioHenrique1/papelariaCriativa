@@ -9,7 +9,7 @@
 
 <body class="font-sans antialiased text-slate-800">
     <div class="d-flex flex-column h-100 bg-light">
-        <div class="d-flex flex-column flex-lg-row flex-grow-1 overflow-hidden">
+        <div class="d-flex flex-grow-1 overflow-hidden">
             <!-- Main Content -->
             <main class="flex-grow-1 d-flex flex-column bg-white">
 
@@ -102,7 +102,7 @@
                 </div>
                 <!-- Table Footer -->
                 <div class="bg-light border-top p-3 d-flex justify-content-between align-items-center text-xxs fw-bold text-muted">
-                    <div id="qtdItensCarrinho">Itens no carrinho: <span class="text-dark">3 itens</span> (27 unidades no total)</div>
+                    <div>Itens no carrinho: <span class="text-dark">3 itens</span> (27 unidades no total)</div>
                     <button class="btn btn-link text-muted text-decoration-none text-xxs p-0 d-flex align-items-center gap-1"><span class="material-symbols-outlined fs-6">delete_sweep</span> Clear List</button>
                 </div>
             </main>
@@ -152,16 +152,7 @@
                         <span class="text-xxs fw-bold text-uppercase text-dark">Valor pago</span>
                         <div class="input-group input-group-sm w-auto bg-light border rounded">
                             <span class="input-group-text bg-transparent border-0 border-end text-xxs text-muted px-2">R$</span>
-                            <input 
-                                class="form-control bg-transparent border-0 fw-bold text-end"
-                                style="width: 90px;"
-                                type="text"
-                                id="pago"
-                                placeholder="0,00"
-                                inputmode="numeric"
-                                name="valor_pago"
-                                oninput="mascaraDinheiro(this); atualizarTotal();"
-                                />
+                            <input class="form-control bg-transparent border-0 fw-bold text-end" style="width: 70px;" type="text" placeholder="0,00" id="pago" />
                         </div>
                     </div>
                     <div class="text-end mt-3">
@@ -213,7 +204,7 @@
                     <button type="submit"
                         class="btn btn-primary w-100 py-3 rounded-4 fw-bold shadow-sm d-flex align-items-center justify-content-center gap-2">
                         <span class="material-symbols-outlined">check_circle</span>
-                        FINALIZAR VENDA
+                        FINISH SALE
                     </button>
 
                 </section>
@@ -221,4 +212,4 @@
             </form>
         </div>
     </div>
-    <?php \Classes\ClassLayout::setFooter("vendas.js"); ?>
+    <?php \Classes\ClassLayout::setFooter("vendas1.js"); ?>
