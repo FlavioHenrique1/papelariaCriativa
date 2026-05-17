@@ -106,7 +106,7 @@
                     <div class="row">
                         <div class="col-md-4 mb-3">
                             <label class="form-label">Tamanho</label>
-                            <input type="text" name="tamanho" id="tamanho" required>
+                            <input type="text" name="tamanho" id="tamanho" class="form-control" required>
                         </div>
                         <div class="col-md-4 mb-3">
                             <label class="form-label">Unidade de Medida (Base)</label>
