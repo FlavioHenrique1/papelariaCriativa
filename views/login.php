@@ -3,7 +3,7 @@
 <div class="container">
 
     <div class="login-box">
-        <img src="<?php echo DIRIMG.'Logo-removebg-preview.png';?>" alt="Arte no Papel Alto do Sol" class="logo">
+        <img src="<?php echo DIRIMG.'Logo_2.png';?>" alt="Arte no Papel Alto do Sol" class="logo">
         <div class="resultadoForm float w100 center"></div>
 
         <form name="formLogin" id="formLogin" method="post">

@@ -11,13 +11,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // action via POST (insert | list | delete | update)
     $action = $_POST['action'] ?? 'insert';
     // Normaliza valor monetário vindo do front
+    $fator=($_POST['fator'] ?? 1);
     $valorTotal = $valCompras->normalizarValor($_POST['total'] ?? '0');
-    $quantidadeTotal = ($_POST['fator'] ?? 0) * ($_POST['quantidade'] ?? 0);
+    $quantidadeTotal = $fator * ($_POST['quantidade'] ?? 0);
+    $custoMedio=$valCompras->normalizarValor($_POST['valorUnitario'] ?? '0');
+    $valorUnitario=$custoMedio / $fator;
     $dados = [
         'id'            => $_POST['id'] ?? null,
         'insumo'        => $_POST['insumo'] ?? null,
         'quantidade'    => $quantidadeTotal,
-        'valorUnitario' => $valCompras->normalizarValor($_POST['valorUnitario'] ?? '0'),
+        'valorUnitario' => $valorUnitario,
         'data'          => $_POST['data'] ?? date('Y-m-d'),
         'total'         => $valorTotal,
         'status'        => "Concluída",

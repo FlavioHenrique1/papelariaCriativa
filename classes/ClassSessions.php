@@ -7,8 +7,8 @@ use Traits\TraitGetIp;
 class ClassSessions{
 
     private $login;
-    private $timeSession=1200;
-    private $timeCanary=300;
+    private $timeSession=12000;
+    private $timeCanary=3000;
 
     public function __construct()
     {

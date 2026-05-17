@@ -7,15 +7,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'id'        => $_POST['id']        ?? null,
         'nome'      => $_POST['nome']      ?? '',
         'descricao' => $_POST['descricao'] ?? '',
-        'tamanho' => $_POST['tamanho'] ?? '',
+        'tamanho'   => $_POST['tamanho'] ?? '',
         'unidade_base' => $_POST['unidade_base'] ?? '',
         'estoqueMinimo' =>$_POST['estoqueMinimo'] ?? ''
     ];
     $action = $_POST['action'] ?? null;
     // echo $action;
 
-    $unidades = $_POST['unidade_compra'] ?? [];
-    $fatores  = $_POST['fator'] ?? [];
+    $unidades = $_POST['unidade_compra'] ?? [$dados['unidade_base']];
+    $fatores  = $_POST['fator'] ?? ["1"];
 
     if (empty($dados['id']) && empty($action)) {
         // INSERT

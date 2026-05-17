@@ -144,10 +144,10 @@
                             <input class="form-control text-end p-1 border-end-0" style="width: 50px;" type="text" placeholder="0,00" id="desconto" />
                         </div>
                     </div>
-                    <div class="d-flex justify-content-between mb-3 text-xs fw-bold text-success">
+                    <!-- <div class="d-flex justify-content-between mb-3 text-xs fw-bold text-success">
                         <span>Desconto (PROMO10)</span>
                         <span>-$2.95</span>
-                    </div>
+                    </div> -->
                     <div class="d-flex justify-content-between align-items-center pt-3 border-top">
                         <span class="text-xxs fw-bold text-uppercase text-dark">Valor pago</span>
                         <div class="input-group input-group-sm w-auto bg-light border rounded">

@@ -106,27 +106,7 @@
                     <div class="row">
                         <div class="col-md-4 mb-3">
                             <label class="form-label">Tamanho</label>
-                            <select name="tamanho" id="tamanho" class="form-control" required>
-                                <option value="">Selecione</option>
-                                <option value="A3">A3</option>
-                                <option value="A4">A4</option>
-                                <option value="A5">A5</option>
-                                <option value="A6">A6</option>
-                                <option value="Documento">Documento</option>
-                                <option value="7">7</option>
-                                <option value="9">9</option>
-                                <option value="12">12</option>
-                                <option value="14">14</option>
-                                <option value="17">17</option>
-                                <option value="20">20</option>
-                                <option value="23">23</option>
-                                <option value="25">25</option>
-                                <option value="29">29</option>
-                                <option value="33">33</option>
-                                <option value="40">40</option>
-                                <option value="45">45</option>
-                                <option value="50">50</option>
-                            </select>
+                            <input type="text" name="tamanho" id="tamanho" required>
                         </div>
                         <div class="col-md-4 mb-3">
                             <label class="form-label">Unidade de Medida (Base)</label>
